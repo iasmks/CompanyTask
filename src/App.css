@@ -82,19 +82,19 @@
 
 #color-1:checked ~ .product-nav > label:nth-of-type(1){
   background-color: hsl(30, 70%, 45%);
-  box-shadow: 0px 0px 0 10px hsl(30, 70%, 45%,0.5);
+  box-shadow: 0px 0px 0 6px hsl(30, 70%, 45%,0.5);
 }
 #color-2:checked ~ .product-nav > label:nth-of-type(2){
   background-color: hsl(120, 70%, 45%);
-  box-shadow: 0px 0px 0 10px hsl(120, 70%, 45%,0.5);
+  box-shadow: 0px 0px 0 6px hsl(120, 70%, 45%,0.5);
 }
 #color-3:checked ~ .product-nav > label:nth-of-type(3){
   background-color: hsl(210, 70%, 45%);
-  box-shadow: 0px 0px 0 10px hsl(210, 70%, 45%,0.5);
+  box-shadow: 0px 0px 0 6px hsl(210, 70%, 45%,0.5);
 }
 #color-4:checked ~ .product-nav > label:nth-of-type(4){
   background-color: hsl(300, 70%, 45%);
-  box-shadow: 0px 0px 0 10px hsl(300, 70%, 45%,0.5);
+  box-shadow: 0px 0px 0 6px hsl(300, 70%, 45%,0.5);
 }
 input[type=file] {
   color: transparent !important;
@@ -218,4 +218,9 @@ input[type=file] {
 .test {
   /* position: absolute; */
   margin-right: 20%;
+}
+.logo {
+  position: absolute;
+  margin-top: 20%;
+  margin-right: 35%;
 }

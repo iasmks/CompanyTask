@@ -3,6 +3,7 @@ import './App.css'
 import logo from "./assets/Blue umbrella.png"
 import icon from "./assets/upload_icon.svg"
 import useScript from 'react-script-hook';
+import LogoUpload from './logoUpload';
 
 function App() {
   const [selectedFile, setSelectedFile] = useState();
@@ -18,6 +19,18 @@ function App() {
   const handleSubmission = () => {
 
   }
+  const handleLogoUpload = (f) =>{
+    if(f!=null){
+        var reader = new FileReader(); 
+        reader.onload = (function(theFile) {
+            return function(e) {
+              setSelectedFile(e.target.result)
+                document.getElementById('list').innerHTML = ['<img src="', e.target.result,'" title="', theFile.name, '" class="over" width="120" height="40" />'].join('');
+            };
+        })(f);
+        reader.readAsDataURL(f);
+    }
+}
   return (
     <>
     
@@ -26,10 +39,13 @@ function App() {
         <input type="radio" name="color" id="color-2" hidden/>
         <input type="radio" name="color" id="color-3" hidden/>
         <input type="radio" name="color" id="color-4" hidden/>
-
+        <div className='logo'>
+        <img src={selectedFile} alt="Product" width="50px" height="40px"/>
+        </div>
         <div class="product">
             <img src={logo} alt="Product"/>
         </div>
+        
 
         <div class="product-nav">
         <h2 className='text-black' style={{fontWeight:"bold",fontSize:"45px",marginBottom:"45px"}}>Custom Umbrella</h2>
@@ -43,11 +59,9 @@ function App() {
 
           
 
-
-
 {/* <input type="file" id="upload" hidden/>
-<label for="upload" className='file_upload'>Choose file</label>
-<div class="file-upload">
+<label for="upload" className='file_upload'>Choose file</label> */}
+{/* <div class="file-upload">
   <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
   <div class="image-upload-wrap">
@@ -63,7 +77,6 @@ function App() {
     </div>
   </div>
 </div> */}
-
 
 {/* <div style={{background:"red"}}>
 <img src={icon}/><input type="file" name="file" onChange={changeHandler} style={{width:"100px"}}/>
@@ -84,10 +97,7 @@ function App() {
       <div>
         <button onClick={handleSubmission}>Submit</button>
       </div> */}
-
-
-
-
+      <LogoUpload handleLogoUpload={handleLogoUpload}/>
         </div>
 
     </section>
